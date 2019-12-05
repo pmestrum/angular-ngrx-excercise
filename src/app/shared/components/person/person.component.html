@@ -1,0 +1,8 @@
+<div class="person" id="person-{{person.id}}">
+  <div class="name">{{person.first_name}} {{person.last_name}}</div>
+  <div class="email">{{person.email}}</div>
+  <div class="avatar"><img src="{{person.avatar}}"></div>
+  <div>
+    <button (click)="toggleSelected.emit()">{{person.selected ? 'Remove' : 'Add'}}</button>
+  </div>
+</div>

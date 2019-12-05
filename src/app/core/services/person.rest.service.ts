@@ -8,6 +8,6 @@ export class PersonRestService {
   constructor(private http: HttpClient) {}
 
   getUsers$(): Observable<Persons> {
-    return this.http.get<Persons>(`https://reqres.in/api/users?page=0`);
+    return this.http.get<Persons>(`https://reqres.in/api/users?page=1`);
   }
 }

@@ -13,3 +13,9 @@ export interface Persons {
   'total_pages': number;
   'data': Person[];
 }
+
+export interface Selectable {
+  selected: boolean;
+}
+
+export interface SelectablePerson extends Person, Selectable {}

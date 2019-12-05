@@ -1,0 +1,21 @@
+.person {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: #c2c3c4 solid 1px;
+  margin: 10px;
+  align-items: center;
+}
+
+.person .name {
+  font-weight: bold
+}
+
+.person .email {
+
+}
+
+.person .avatar {
+  padding: 10px;
+}
