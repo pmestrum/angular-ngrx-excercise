@@ -1,8 +1,17 @@
-div {
-  background-color: lightblue;
-  height: 30px;
+.header {
+  background-color: papayawhip;
+  height: 60px;
   padding: 0;
   margin: 0;
-  text-align: center;
-  color: white;
+  color: black;
+  font-family: Arial, sans-serif;
+  font-size: 20pt;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.size {
+  font-weight: 700;
+  padding: 0 10px;
 }

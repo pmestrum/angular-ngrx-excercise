@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from '../shared/shared.module';
 
-import { AppComponent } from './app.component';
+import { AppContainer } from './app.container';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppContainer,
     HeaderComponent
   ],
   imports: [
@@ -17,6 +17,6 @@ import { HeaderComponent } from './header/header.component';
     SharedModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppContainer]
 })
 export class AppModule {}

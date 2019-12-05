@@ -5,11 +5,12 @@ import { PersonService } from '../core/services/person.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.container.html',
+  styleUrls: ['./app.container.css']
 })
-export class AppComponent  {
-  persons$ = this.personService.getPersons$();
+export class AppContainer  {
+  persons$ = this.personService.persons$;
+  selectedSize$ = this.personService.selectedSize$;
 
   constructor(private personService: PersonService) {}
 
