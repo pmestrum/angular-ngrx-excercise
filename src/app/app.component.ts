@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Persons } from 'src/core/interfaces/Person';
-import { PersonRestService } from 'src/core/services/person.rest.service';
+import { Persons } from '../core/interfaces/Person';
+import { PersonRestService } from '../core/services/person.rest.service';
 
 @Component({
   selector: 'app-root',
