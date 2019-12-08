@@ -2,7 +2,5 @@
   <div class="name">{{person.first_name}} {{person.last_name}}</div>
   <div class="email">{{person.email}}</div>
   <div class="avatar"><img src="{{person.avatar}}"></div>
-  <div>
-    <button (click)="toggleSelected.emit()">{{person.selected ? 'Remove' : 'Add'}}</button>
-  </div>
+  <button class="btn btn-block" [ngClass]="{'btn-danger': person.selected, 'btn-primary': !person.selected}" (click)="toggleSelected.emit()">{{person.selected ? 'Remove' : 'Add'}}</button>
 </div>
