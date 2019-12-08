@@ -50,12 +50,11 @@ export class PersonService {
         selected: p === person ? false : p.selected
       }));
       this._persons$.next(newArray);
-      this._selectedSize$.next(newArray.filter(p => p.selected).length);
+      this.setSelectedSize(newArray);
     });
   }
 
   private setSelectedSize(newArray: SelectablePerson[]) {
-    debugger;
     this._selectedSize$.next(newArray.filter(p => p.selected).length);
   }
 }
