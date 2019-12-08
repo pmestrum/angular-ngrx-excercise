@@ -1,21 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { Person } from '../core/interfaces/Person';
-import { PersonSandbox } from '../core/sandboxes/person.sandbox';
+import { Component } from '@angular/core';
+import { SelectablePerson } from '../core/interfaces/Person';
+import { PersonService } from '../core/services/person.service';
+
+// import { PersonSandbox } from '../core/sandboxes/person.sandbox';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.container.html',
   styleUrls: ['./app.container.css']
 })
-export class AppContainer implements OnInit {
+export class AppContainer  {
+  persons$ = this.personService.persons$;
+  selectedSize$ = this.personService.selectedSize$;
 
-  constructor(public sandbox: PersonSandbox) {}
+  constructor(private personService: PersonService) {}
 
-  ngOnInit(): void {
-    this.sandbox.loadPersons();
+  toggleSelected(person: SelectablePerson) {
+    if (person.selected) {
+      this.personService.deselectPerson(person);
+    } else {
+      this.personService.selectPerson(person);
+    }
   }
 
-  trackByFn(index, person: Person) {
+  trackByFn(index, person: SelectablePerson) {
     return person.id;
   }
 }

@@ -1,7 +1,3 @@
-import { ActionReducerMap } from '@ngrx/store';
-import { personReducer } from './personState/person-reducer';
-import { State} from './state.interface';
-
-export const reducers: ActionReducerMap<State> = {
-  personState: personReducer
-};
+// import { ActionReducerMap } from '@ngrx/store';
+// import { personReducer } from './personState/person-reducer';
+// import { State} from './state.interface';
