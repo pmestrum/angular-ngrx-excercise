@@ -13,17 +13,3 @@ export interface Persons {
   'total_pages': number;
   'data': Person[];
 }
-
-export interface Selectable {
-  selected: boolean;
-}
-
-export interface SelectablePerson extends Person, Selectable {}
-
-export interface LoadState<T> {
-  loading: boolean;
-  loaded: boolean;
-  failed: boolean;
-  data: T;
-  errorMessage?: string;
-}

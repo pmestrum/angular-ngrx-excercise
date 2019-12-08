@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Person, SelectablePerson } from '../../../core/interfaces/Person';
+import { Person } from '../../../core/interfaces/Person';
 
 @Component({
   selector: 'app-person',
@@ -8,7 +8,7 @@ import { Person, SelectablePerson } from '../../../core/interfaces/Person';
 })
 export class PersonComponent implements OnInit {
 
-  @Input() person: SelectablePerson;
+  @Input() person: Person;
 
   @Output() toggleSelected = new EventEmitter<void>();
 

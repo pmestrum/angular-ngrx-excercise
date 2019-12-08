@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectablePerson } from '../core/interfaces/Person';
+import { Person } from '../core/interfaces/Person';
 import { PersonSandbox } from '../core/sandboxes/person.sandbox';
 
 @Component({
@@ -15,15 +15,7 @@ export class AppContainer implements OnInit {
     this.sandbox.loadPersons();
   }
 
-  toggleSelected(person: SelectablePerson) {
-    if (person.selected) {
-      this.sandbox.deselectPerson(person);
-    } else {
-      this.sandbox.selectPerson(person);
-    }
-  }
-
-  trackByFn(index, person: SelectablePerson) {
+  trackByFn(index, person: Person) {
     return person.id;
   }
 }

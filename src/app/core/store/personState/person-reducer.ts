@@ -6,7 +6,6 @@ const INITIAL_STATE: PersonState = {
   failed: false,
   loaded: false,
   loading: false,
-  selectedSize: 0,
 };
 
 function personsLoad(state: PersonState, action: actions.PersonsLoadAction) {
@@ -19,11 +18,7 @@ function personsLoad(state: PersonState, action: actions.PersonsLoadAction) {
 function personsLoadSuccess(state: PersonState, action: actions.PersonsLoadSuccessAction) {
   return {
     ...INITIAL_STATE,
-    data: action.payload.persons.map(p => ({
-        ...p,
-        selected: false
-      })
-    ),
+    data: action.payload.persons,
     loaded: true,
   };
 }
@@ -36,41 +31,6 @@ function personsLoadFail(state: PersonState, action: actions.PersonsLoadFailActi
   };
 }
 
-function selectPerson(state: PersonState, action: actions.PersonsSelectAction) {
-  const newData = state.data.map(person => {
-    if (person.id === action.payload.person.id) {
-      return {
-        ...person,
-        selected: true
-      };
-    }
-    return person;
-  });
-  return {
-    ...state,
-    data: newData,
-    selectedSize: newData.filter(p => p.selected).length,
-  };
-}
-
-function deselectPerson(state: PersonState, action: actions.PersonsDeselectAction) {
-  const newData = state.data.map(person => {
-    if (person.id === action.payload.person.id) {
-      return {
-        ...person,
-        selected: false
-      };
-    }
-    return person;
-  });
-  return {
-    ...state,
-    data: newData,
-    selectedSize: newData.filter(p => p.selected).length,
-  };
-}
-
-// tslint:disable-next-line:max-line-length
 export function personReducer(state: PersonState = INITIAL_STATE, action: actions.Actions): PersonState {
   switch (action.type) {
     case actions.PERSONS_LOAD: {
@@ -81,12 +41,6 @@ export function personReducer(state: PersonState = INITIAL_STATE, action: action
     }
     case actions.PERSONS_LOAD_FAIL: {
       return personsLoadFail(state, action);
-    }
-    case actions.PERSON_SELECT: {
-      return selectPerson(state, action);
-    }
-    case actions.PERSON_DESELECT: {
-      return deselectPerson(state, action);
     }
   }
   return state;

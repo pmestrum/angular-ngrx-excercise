@@ -1,0 +1,16 @@
+NGRX
+- Change model: create new interface SelectablePerson (extends Person)
+- Change PersonState: add 'selectedSize'
+- Change load success reducer: make it an array of SelectablePerson, default not selected
+- create 2 new actions: SelectPersonAction & DeselectPersonAction
+- write 2 new reducer functions for this, and add to switch
+
+SANDBOX & CONTAINER
+- add 2 new methods to the sandbox: select & deselect, trigger NGRX
+- add function to container to select/deselect, call sandbox method (ps: never change incoming state !!!)
+- add @Output event on Person component, to toggle selection
+- add button to template of Person component
+- create new selector in sandbox for selectedSize
+- add @Input parameter to header component, show size of selection
+
+That's it
