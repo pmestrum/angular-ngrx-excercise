@@ -19,3 +19,11 @@ export interface Selectable {
 }
 
 export interface SelectablePerson extends Person, Selectable {}
+
+export interface LoadState<T> {
+  loading: boolean;
+  loaded: boolean;
+  failed: boolean;
+  data: T;
+  errorMessage?: string;
+}
