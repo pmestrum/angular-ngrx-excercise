@@ -3,6 +3,8 @@ import { Person, Persons, SelectablePerson } from '../core/interfaces/Person';
 import { PersonRestService } from '../core/services/person.rest.service';
 import { PersonService } from '../core/services/person.service';
 
+// import { PersonSandbox } from '../core/sandboxes/person.sandbox';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.container.html',

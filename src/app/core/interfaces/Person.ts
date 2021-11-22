@@ -14,6 +14,9 @@ export interface Persons {
   'data': Person[];
 }
 
-export interface SelectablePerson extends Person {
+
+export interface Selectable {
   selected: boolean;
 }
+
+export interface SelectablePerson extends Person, Selectable {}
