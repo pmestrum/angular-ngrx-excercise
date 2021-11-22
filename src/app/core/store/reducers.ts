@@ -1,3 +1,7 @@
-// import { ActionReducerMap } from '@ngrx/store';
-// import { personReducer } from './personState/person-reducer';
-// import { State} from './state.interface';
+import { ActionReducerMap } from '@ngrx/store';
+import { personReducer } from './personState/person-reducer';
+import { State} from './state.interface';
+
+export const reducers: ActionReducerMap<State> = {
+  personState: personReducer
+};
