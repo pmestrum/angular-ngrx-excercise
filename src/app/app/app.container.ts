@@ -5,7 +5,8 @@ import { AppSandbox } from './app.sandbox';
 @Component({
   selector: 'app-root',
   templateUrl: './app.container.html',
-  styleUrls: ['./app.container.css']
+  styleUrls: ['./app.container.css'],
+  providers: [AppSandbox]
 })
 export class AppContainer implements OnInit {
 

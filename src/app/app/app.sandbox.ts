@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { take } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 import { PersonRestService } from 'src/app/core/services/person.rest.service';
 import { State } from 'src/app/core/store/state.interface';
 import { SelectablePerson } from 'src/app/core/interfaces/Person';
 import * as actions from 'src/app/core/store/personState/person-actions';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class AppSandbox {
 
   persons$ = this.store.select(state => state.personState.data);
@@ -19,7 +19,7 @@ export class AppSandbox {
     this.store.dispatch(actions.personsLoadAction());
 
     this.personRestService.getUsers$()
-      .pipe(take(1))
+      .pipe(first())
       .subscribe({
         next:
           response => {

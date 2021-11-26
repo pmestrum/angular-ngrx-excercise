@@ -6,12 +6,12 @@
 //
 
 - npm install @ngrx/store
-- add to app module
-- create main reducer placeholder
 - create state object (PersonState)
 - Create 2 actions: load & load-success
 - create 2 reducers + initial state
-- add to state object
+- add to state object // state.interface.ts = global ngrx state of app
+- create main reducer placeholder // reducers.ts ~ state.interface.ts
+- add to app module // https://ngrx.io/guide/store
 - mention testing !!
 - create sandbox with loadPersons function
 - add selectors to sandbox
