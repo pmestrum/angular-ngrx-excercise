@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
 import { take } from 'rxjs/operators';
-import { SelectablePerson } from '../interfaces/Person';
+import { SelectablePerson } from '../interfaces/person.interface';
 import { PersonRestService } from './person.rest.service';
 
 @Injectable({ providedIn: 'root' })

@@ -14,9 +14,6 @@ export interface Persons {
   'data': Person[];
 }
 
-
-export interface Selectable {
-  selected: boolean;
-}
-
-export interface SelectablePerson extends Person, Selectable {}
+/*
+Create PersonState interface containing data (Person[]) and booleans for loading, loaded, failed
+ */

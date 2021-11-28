@@ -6,19 +6,23 @@
 //
 
 - npm install @ngrx/store
-- add to app module
-- create main reducer placeholder
-- create state object (PersonState)
+- optional: npm install @ngrx/store-devtools
+- create PersonState interface: has array of persons, and booleans for loading, loaded (optional: failed and errorMessage)
+- create state interface: global state of app. contains: personState
+SYNC
+- create directory core/store/person
 - Create 2 actions: load & load-success
 - create 2 reducers + initial state
-- add to state object
-- mention testing !!
+SYNC
+- create main reducer
+- add to core module // https://ngrx.io/guide/store
+SYNC
 - create sandbox with loadPersons function
-- add selectors to sandbox
-- change appContainer, use sandbox instead of service. remove service
+- add persons$ observable to sandbox, selecting the person[] from the state
+SYNC
+- change appContainer, use sandbox instead of service. remove service (provide sandbox locally: https://angular.io/guide/providers#limiting-provider-scope-with-components)
 - trigger load oninit
 - test in browser
-- install & setup @ngrx/store-devtools
 
 
 //   ____            _     ____               _           _      __  _               _           _

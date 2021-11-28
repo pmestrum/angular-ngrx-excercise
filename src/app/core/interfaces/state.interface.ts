@@ -1,0 +1,3 @@
+/*
+  create global state containing personState
+ */

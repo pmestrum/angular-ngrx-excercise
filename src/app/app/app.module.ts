@@ -5,11 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { AppContainer } from './app.container';
 import { HeaderComponent } from './header/header.component';
-
-// import { environment } from '../../environments/environment';
-// import { StoreModule } from '@ngrx/store';
-// import { reducers } from '../core/store/reducers';
-// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     HttpClientModule,
     SharedModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppContainer]
