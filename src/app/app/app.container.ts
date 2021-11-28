@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectablePerson } from '../core/interfaces/Person';
+import { SelectablePerson } from '../core/interfaces/person.interface';
 import { AppSandbox } from './app.sandbox';
 
 @Component({

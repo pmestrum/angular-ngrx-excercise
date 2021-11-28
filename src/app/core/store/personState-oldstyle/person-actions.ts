@@ -1,5 +1,5 @@
 import { Action, createAction, props } from '@ngrx/store';
-import { Person, SelectablePerson } from '../../interfaces/Person';
+import { PersonInterface, SelectablePerson } from '../../interfaces/person.interface';
 
 export const PERSONS_LOAD = 'PERSONS_LOAD';
 export const PERSONS_LOAD_SUCCESS = 'PERSONS_LOAD_SUCCESS';
@@ -14,7 +14,7 @@ export class PersonsLoadAction implements Action {
 export class PersonsLoadSuccessAction implements Action {
   readonly type = PERSONS_LOAD_SUCCESS;
 
-  constructor(public payload: { persons: Person[] }) {}
+  constructor(public payload: { persons: PersonInterface[] }) {}
 }
 
 export class PersonsLoadFailAction implements Action {

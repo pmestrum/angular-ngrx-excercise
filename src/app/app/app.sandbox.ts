@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { first } from 'rxjs/operators';
 import { PersonRestService } from 'src/app/core/services/person.rest.service';
-import { State } from 'src/app/core/store/state.interface';
-import { SelectablePerson } from 'src/app/core/interfaces/Person';
+import { State } from 'src/app/core/interfaces/state.interface';
+import { SelectablePerson } from 'src/app/core/interfaces/person.interface';
 import * as actions from 'src/app/core/store/personState/person-actions';
 
 @Injectable()

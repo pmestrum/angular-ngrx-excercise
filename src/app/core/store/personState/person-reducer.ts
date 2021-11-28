@@ -1,7 +1,7 @@
-import { PersonState } from '../state.interface';
 import * as actions from './person-actions';
 import { createReducer, on } from '@ngrx/store';
-import { Person } from '../../interfaces/Person';
+import { PersonState } from '../../interfaces/state.interface';
+import { PersonInterface } from '../../interfaces/person.interface';
 
 const INITIAL_STATE: PersonState = {
   data: [],
@@ -18,7 +18,7 @@ function personsLoad() {
   };
 }
 
-function personsLoadSuccess(state: PersonState, persons: Person[]) {
+function personsLoadSuccess(state: PersonState, persons: PersonInterface[]) {
   return {
     ...INITIAL_STATE,
     data: persons.map(p => ({
@@ -38,7 +38,7 @@ function personsLoadFail(state: PersonState, errorMessage: string) {
   };
 }
 
-function selectPerson(state: PersonState, selectedPerson: Person) {
+function selectPerson(state: PersonState, selectedPerson: PersonInterface) {
   const newData = state.data.map(person => {
     if (person.id === selectedPerson.id) {
       return {
@@ -55,7 +55,7 @@ function selectPerson(state: PersonState, selectedPerson: Person) {
   };
 }
 
-function deselectPerson(state: PersonState, deselectedPerson: Person) {
+function deselectPerson(state: PersonState, deselectedPerson: PersonInterface) {
   const newData = state.data.map(person => {
     if (person.id === deselectedPerson.id) {
       return {

@@ -1,4 +1,4 @@
-import { PersonState } from '../state.interface';
+import { PersonState } from '../../interfaces/state.interface';
 import * as actions from './person-actions';
 
 const INITIAL_STATE: PersonState = {

@@ -1,4 +1,5 @@
-import { LoadState, SelectablePerson } from '../interfaces/Person';
+import {  SelectablePerson } from './person.interface';
+import { LoadState } from './loadstate.interface';
 
 export interface State {
   personState: PersonState;

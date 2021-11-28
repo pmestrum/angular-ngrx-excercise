@@ -1,4 +1,4 @@
-export interface Person {
+export interface PersonInterface {
   'id': number;
   'email': string;
   'first_name': string;
@@ -11,7 +11,7 @@ export interface Persons {
   'per_page': number;
   'total': number;
   'total_pages': number;
-  'data': Person[];
+  'data': PersonInterface[];
 }
 
 
@@ -19,12 +19,5 @@ export interface Selectable {
   selected: boolean;
 }
 
-export interface SelectablePerson extends Person, Selectable {}
+export interface SelectablePerson extends PersonInterface, Selectable {}
 
-export interface LoadState<T> {
-  loading: boolean;
-  loaded: boolean;
-  failed: boolean;
-  data: T;
-  errorMessage?: string;
-}

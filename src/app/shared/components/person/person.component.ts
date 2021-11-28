@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Person, SelectablePerson } from '../../../core/interfaces/Person';
+import { PersonInterface, SelectablePerson } from '../../../core/interfaces/person.interface';
 
 @Component({
   selector: 'app-person',
