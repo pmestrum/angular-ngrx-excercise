@@ -16,6 +16,7 @@ import {
 export class PersonSandbox {
 
   persons$: Observable<Person[]> = this.store.select(state => state.person.data);
+  sizeSelection$: Observable<number> = this.store.select(state => state.person.sizeSelection);
 
   constructor(private store: Store<State>, private personRestService: PersonRestService) {
   }

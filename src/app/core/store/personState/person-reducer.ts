@@ -13,7 +13,8 @@ const INITIAL_STATE: PersonState = {
   data: [],
   failed: false,
   loaded: false,
-  loading: false
+  loading: false,
+  sizeSelection: 0,
 };
 
 function load() {
@@ -54,6 +55,7 @@ export const personReducer = createReducer<PersonState>(INITIAL_STATE,
   on(actions.personSelectAction, (state, payload) => {
     return {
       ...state,
+      sizeSelection: state.sizeSelection + 1,
       data: state.data.map(person => {
         if (person === payload.person) {
           return {
@@ -68,6 +70,7 @@ export const personReducer = createReducer<PersonState>(INITIAL_STATE,
   on(actions.personDeselectAction, (state, payload) => {
     return {
       ...state,
+      sizeSelection: state.sizeSelection - 1,
       data: state.data.map(person => {
         if (person === payload.person) {
           return {

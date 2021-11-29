@@ -10,6 +10,7 @@ import { PersonSandbox } from './person.sandbox';
 })
 export class AppContainer implements OnInit {
   persons$ = this.sandbox.persons$;
+  sizeSelection$ = this.sandbox.sizeSelection$;
 
   constructor(private sandbox: PersonSandbox) {}
 
