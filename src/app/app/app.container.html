@@ -1,4 +1,4 @@
 <!--<app-header [sizeSelection]="selectedSize$ | async"></app-header>-->
 <div class="persons-container">
-  <app-person [person]="person" *ngFor="let person of (persons$ | async); trackBy: trackByFn"></app-person>
+  <app-person [person]="person" *ngFor="let person of (persons$ | async); trackBy: trackByFn" (toggleSelected)="toggleSelectPerson(person)"></app-person>
 </div>

@@ -50,6 +50,34 @@ function loadFail(state, payload) {
 export const personReducer = createReducer<PersonState>(INITIAL_STATE,
   on(actions.personsLoadAction, load),
   on(actions.personsLoadSuccessAction, loadSuccess),
-  on(actions.personsLoadFailAction, loadFail)
+  on(actions.personsLoadFailAction, loadFail),
+  on(actions.personSelectAction, (state, payload) => {
+    return {
+      ...state,
+      data: state.data.map(person => {
+        if (person === payload.person) {
+          return {
+            ...person,
+            selected: true,
+          };
+        }
+        return person;
+      })
+    };
+  }),
+  on(actions.personDeselectAction, (state, payload) => {
+    return {
+      ...state,
+      data: state.data.map(person => {
+        if (person === payload.person) {
+          return {
+            ...person,
+            selected: false,
+          };
+        }
+        return person;
+      })
+    };
+  })
 );
 

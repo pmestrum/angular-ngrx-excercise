@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonRestService } from '../core/services/person.rest.service';
 import { Person } from '../core/interfaces/person.interface';
 import { PersonSandbox } from './person.sandbox';
 
@@ -20,5 +19,13 @@ export class AppContainer implements OnInit {
 
   ngOnInit(): void {
     this.sandbox.loadPersons();
+  }
+
+  toggleSelectPerson(person: Person) {
+    if (person.selected) {
+      this.sandbox.deselectPerson(person);
+    } else {
+      this.sandbox.selectPerson(person);
+    }
   }
 }

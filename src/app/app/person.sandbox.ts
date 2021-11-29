@@ -4,19 +4,23 @@ import { first, Observable } from 'rxjs';
 import { Person, Persons } from '../core/interfaces/person.interface';
 import { PersonRestService } from '../core/services/person.rest.service';
 import { State } from '../core/interfaces/state.interface';
-import { personsLoadAction } from '../core/store/personState/person-actions';
+import {
+  personDeselectAction,
+  personSelectAction,
+  personsLoadAction,
+  personsLoadFailAction,
+  personsLoadSuccessAction
+} from '../core/store/personState/person-actions';
 
 @Injectable()
 export class PersonSandbox {
 
-  persons$: Observable<Person[]>; // TODO implement
+  persons$: Observable<Person[]> = this.store.select(state => state.person.data);
 
   constructor(private store: Store<State>, private personRestService: PersonRestService) {
   }
 
   loadPersons(): void {
-    // TODO implement
-
     this.store.dispatch(personsLoadAction());
 
     this.personRestService.getUsers$().pipe(
@@ -24,12 +28,20 @@ export class PersonSandbox {
     ).subscribe(
       {
         next: (persons: Persons) => {
-          // TODO dispatch success
+          this.store.dispatch(personsLoadSuccessAction({ persons: persons.data }));
         },
         error: (error) => {
-          // TODO dispatch fail
+          this.store.dispatch(personsLoadFailAction({ errorMessage: error.toString() }));
         }
       }
     );
+  }
+
+  deselectPerson(person: Person) {
+    this.store.dispatch(personDeselectAction({ person }));
+  }
+
+  selectPerson(person: Person) {
+    this.store.dispatch(personSelectAction({ person }));
   }
 }
