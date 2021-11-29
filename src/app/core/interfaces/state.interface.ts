@@ -1,10 +1,5 @@
-import {  SelectablePerson } from './person.interface';
-import { LoadState } from './loadstate.interface';
+import { PersonState } from './person.interface';
 
 export interface State {
   personState: PersonState;
-}
-
-export interface PersonState extends LoadState<SelectablePerson[]> {
-  selectedSize: number;
 }

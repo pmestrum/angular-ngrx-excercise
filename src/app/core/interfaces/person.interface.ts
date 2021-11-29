@@ -1,3 +1,5 @@
+import { LoadState } from './loadstate.interface';
+
 export interface PersonInterface {
   'id': number;
   'email': string;
@@ -14,6 +16,9 @@ export interface Persons {
   'data': PersonInterface[];
 }
 
+export interface PersonState extends LoadState<SelectablePerson[]> {
+  selectedSize: number;
+}
 
 export interface Selectable {
   selected: boolean;
