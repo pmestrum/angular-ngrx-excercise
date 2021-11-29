@@ -1,7 +1,6 @@
 import * as actions from './person-actions';
 import { createReducer, on } from '@ngrx/store';
-import { PersonState } from '../../interfaces/state.interface';
-import { PersonInterface } from '../../interfaces/person.interface';
+import { PersonInterface, PersonState } from '../../interfaces/person.interface';
 
 const INITIAL_STATE: PersonState = {
   data: [],
