@@ -14,6 +14,17 @@ export interface Persons {
   'data': Person[];
 }
 
+export interface LoadState<T> {
+  loading: boolean;
+  loaded: boolean;
+  failed: boolean;
+  errorMessage?: string;
+  data: T[];
+}
+
+export interface PersonState extends LoadState<Person> {
+}
+
 /*
 Create PersonState interface containing data (Person[]) and booleans for loading, loaded, failed
  */
