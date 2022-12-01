@@ -24,10 +24,6 @@ function load() {
   };
 }
 
-/**
- * @param state
- * @param payload
- */
 function loadSuccess(state, payload) {
   return {
     ...INITIAL_STATE,
@@ -36,10 +32,6 @@ function loadSuccess(state, payload) {
   };
 }
 
-/**
- * @param state
- * @param payload
- */
 function loadFail(state, payload) {
   return {
     ...INITIAL_STATE,
@@ -48,39 +40,43 @@ function loadFail(state, payload) {
   };
 }
 
+function personSelect(state, payload) {
+  return {
+    ...state,
+    sizeSelection: state.sizeSelection + 1,
+    data: state.data.map(person => {
+      if (person === payload.person) {
+        return {
+          ...person,
+          selected: true,
+        };
+      }
+      return person;
+    })
+  };
+}
+
+function personDeselect(state, payload) {
+  return {
+    ...state,
+    sizeSelection: state.sizeSelection - 1,
+    data: state.data.map(person => {
+      if (person === payload.person) {
+        return {
+          ...person,
+          selected: false,
+        };
+      }
+      return person;
+    })
+  };
+}
+
 export const personReducer = createReducer<PersonState>(INITIAL_STATE,
   on(actions.personsLoadAction, load),
   on(actions.personsLoadSuccessAction, loadSuccess),
   on(actions.personsLoadFailAction, loadFail),
-  on(actions.personSelectAction, (state, payload) => {
-    return {
-      ...state,
-      sizeSelection: state.sizeSelection + 1,
-      data: state.data.map(person => {
-        if (person === payload.person) {
-          return {
-            ...person,
-            selected: true,
-          };
-        }
-        return person;
-      })
-    };
-  }),
-  on(actions.personDeselectAction, (state, payload) => {
-    return {
-      ...state,
-      sizeSelection: state.sizeSelection - 1,
-      data: state.data.map(person => {
-        if (person === payload.person) {
-          return {
-            ...person,
-            selected: false,
-          };
-        }
-        return person;
-      })
-    };
-  })
+  on(actions.personSelectAction, personSelect),
+  on(actions.personDeselectAction, personDeselect)
 );
 
