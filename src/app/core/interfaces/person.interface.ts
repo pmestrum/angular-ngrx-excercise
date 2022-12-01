@@ -25,6 +25,3 @@ export interface LoadState<T> {
 export interface PersonState extends LoadState<Person> {
 }
 
-/*
-Create PersonState interface containing data (Person[]) and booleans for loading, loaded, failed
- */

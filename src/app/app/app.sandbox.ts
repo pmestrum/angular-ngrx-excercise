@@ -4,10 +4,10 @@ import { first, Observable } from 'rxjs';
 import { Person, Persons } from '../core/interfaces/person.interface';
 import { PersonRestService } from '../core/services/person.rest.service';
 import { State } from '../core/interfaces/state.interface';
-import { personsLoadAction } from '../core/store/personState/person-actions';
+import { personsLoadAction } from '../core/store/person/person-actions';
 
 @Injectable()
-export class PersonSandbox {
+export class AppSandbox {
 
   persons$: Observable<Person[]>; // TODO implement
 
