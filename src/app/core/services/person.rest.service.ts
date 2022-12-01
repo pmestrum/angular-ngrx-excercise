@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Persons } from 'src/app/core/interfaces/person.interface';
+import { Persons } from '../interfaces/person.interface';
 
 @Injectable({ providedIn: 'root' })
 export class PersonRestService {
