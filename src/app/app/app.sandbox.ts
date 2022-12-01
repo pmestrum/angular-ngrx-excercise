@@ -4,7 +4,7 @@ import { first } from 'rxjs/operators';
 import { PersonRestService } from 'src/app/core/services/person.rest.service';
 import { State } from 'src/app/core/interfaces/state.interface';
 import { SelectablePerson } from 'src/app/core/interfaces/person.interface';
-import * as actions from 'src/app/core/store/personState/person-actions';
+import * as actions from 'src/app/core/store/person/person-actions';
 
 @Injectable()
 export class AppSandbox {

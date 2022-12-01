@@ -14,25 +14,29 @@ export class PersonsLoadAction implements Action {
 export class PersonsLoadSuccessAction implements Action {
   readonly type = PERSONS_LOAD_SUCCESS;
 
-  constructor(public payload: { persons: PersonInterface[] }) {}
+  constructor(public payload: { persons: PersonInterface[] }) {
+  }
 }
 
 export class PersonsLoadFailAction implements Action {
   readonly type = PERSONS_LOAD_FAIL;
 
-  constructor(public payload: { message: string }) {}
+  constructor(public payload: { message: string }) {
+  }
 }
 
 export class PersonsSelectAction implements Action {
   readonly type = PERSON_SELECT;
 
-  constructor(public payload: { person: SelectablePerson }) {}
+  constructor(public payload: { person: SelectablePerson }) {
+  }
 }
 
 export class PersonsDeselectAction implements Action {
   readonly type = PERSON_DESELECT;
 
-  constructor(public payload: { person: SelectablePerson }) {}
+  constructor(public payload: { person: SelectablePerson }) {
+  }
 }
 
 export type Actions = PersonsLoadAction | PersonsLoadSuccessAction | PersonsLoadFailAction | PersonsSelectAction | PersonsDeselectAction;

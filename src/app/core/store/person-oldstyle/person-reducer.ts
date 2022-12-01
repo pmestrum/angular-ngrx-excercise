@@ -1,5 +1,5 @@
-import { PersonState } from '../../interfaces/state.interface';
 import * as actions from './person-actions';
+import { PersonState } from '../../interfaces/person.interface';
 
 const INITIAL_STATE: PersonState = {
   data: [],
