@@ -10,10 +10,10 @@ import {
   personsLoadAction,
   personsLoadFailAction,
   personsLoadSuccessAction
-} from '../core/store/personState/person-actions';
+} from '../core/store/person/person-actions';
 
 @Injectable()
-export class PersonSandbox {
+export class AppSandbox {
 
   persons$: Observable<Person[]> = this.store.select(state => state.person.data);
   sizeSelection$: Observable<number> = this.store.select(state => state.person.sizeSelection);
