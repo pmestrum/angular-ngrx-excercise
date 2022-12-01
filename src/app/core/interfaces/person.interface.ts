@@ -1,10 +1,11 @@
+
+// TODO add selected boolean (or create new interface SelecteablePerson)
 export interface Person {
   'id': number;
   'email': string;
   'first_name': string;
   'last_name': string;
   'avatar': string;
-  selected?: boolean;
 }
 
 export interface Persons {

@@ -7,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() sizeSelection = 0;
-
+  // TODO add size selection
   ngOnInit(): void {
   }
 }

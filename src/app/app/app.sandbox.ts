@@ -4,19 +4,13 @@ import { first, Observable } from 'rxjs';
 import { Person, Persons } from '../core/interfaces/person.interface';
 import { PersonRestService } from '../core/services/person.rest.service';
 import { State } from '../core/interfaces/state.interface';
-import {
-  personDeselectAction,
-  personSelectAction,
-  personsLoadAction,
-  personsLoadFailAction,
-  personsLoadSuccessAction
-} from '../core/store/person/person-actions';
+import { personsLoadAction, personsLoadFailAction, personsLoadSuccessAction } from '../core/store/person/person-actions';
 
 @Injectable()
 export class AppSandbox {
 
   persons$: Observable<Person[]> = this.store.select(state => state.person.data);
-  sizeSelection$: Observable<number> = this.store.select(state => state.person.sizeSelection);
+  // TODO add selectedSize$
 
   constructor(private store: Store<State>, private personRestService: PersonRestService) {
   }
@@ -38,11 +32,5 @@ export class AppSandbox {
     );
   }
 
-  deselectPerson(person: Person) {
-    this.store.dispatch(personDeselectAction({ person }));
-  }
-
-  selectPerson(person: Person) {
-    this.store.dispatch(personSelectAction({ person }));
-  }
+  // TODO add selectPerson and deselectPerson actions
 }

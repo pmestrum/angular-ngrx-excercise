@@ -9,7 +9,7 @@ import { Person } from '../../../core/interfaces/person.interface';
 export class PersonComponent implements OnInit {
 
   @Input() person: Person;
-  @Output() toggleSelected = new EventEmitter<void>();
+  // TODO add toggleSelected output
 
   ngOnInit(): void {
   }

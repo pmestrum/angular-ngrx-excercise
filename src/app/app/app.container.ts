@@ -9,10 +9,8 @@ import { AppSandbox } from './app.sandbox';
   providers: [AppSandbox]
 })
 export class AppContainer implements OnInit {
-  persons$ = this.sandbox.persons$;
-  sizeSelection$ = this.sandbox.sizeSelection$;
 
-  constructor(private sandbox: AppSandbox) {}
+  constructor(public sandbox: AppSandbox) {}
 
   trackByFn(index, person: Person) {
     return person.id;
@@ -22,11 +20,5 @@ export class AppContainer implements OnInit {
     this.sandbox.loadPersons();
   }
 
-  toggleSelectPerson(person: Person) {
-    if (person.selected) {
-      this.sandbox.deselectPerson(person);
-    } else {
-      this.sandbox.selectPerson(person);
-    }
-  }
+// TODO create toggleSelectPerson(person: Person);
 }

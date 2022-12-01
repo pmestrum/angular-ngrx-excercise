@@ -14,11 +14,4 @@ export const personsLoadFailAction = createAction('PERSONS_LOAD_FAIL',
   props<{ errorMessage: string }>()
 );
 
-
-export const personSelectAction = createAction('PERSON_SELECT',
-  props<{ person: Person }>()
-);
-
-export const personDeselectAction = createAction('PERSON_DESELECT',
-  props<{ person: Person }>()
-);
+// TODO create 2 actions: select & deselect
