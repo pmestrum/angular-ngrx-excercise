@@ -5,8 +5,8 @@
 //  |_|   \__,_|_|   \__| |_(_)  \__,_|\__,_|\__,_| |_| \_|\____|_| \_\_/\_\
 //
 
-- npm install @ngrx/store
-- optional: npm install @ngrx/store-devtools
+- npm install @ngrx/store@13 (already in package.json)
+- optional: npm install @ngrx/store-devtools@13 (already in package.json)
 - create PersonState interface: has array of persons, and booleans for loading, loaded (optional: failed and errorMessage)
 - create state interface: global state of app. contains: personState
 SYNC
