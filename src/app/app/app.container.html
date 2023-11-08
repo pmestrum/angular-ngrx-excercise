@@ -3,5 +3,9 @@
 
 <div class="persons-container">
   <div *ngIf="sandbox.loading$ | async">Loading</div>
-  <app-person [person]="person" *ngFor="let person of (sandbox.persons$ | async); trackBy: trackByFn"></app-person>
+  <app-person
+    [person]="person"
+    (click)="sandbox.toggleSelectPerson(person)"
+    *ngFor="let person of (sandbox.persons$ | async); trackBy: trackByFn"
+  ></app-person>
 </div>

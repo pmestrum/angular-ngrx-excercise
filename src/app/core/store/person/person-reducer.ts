@@ -1,12 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
-import { getPersonsAction, getPersonsSuccessAction } from './person-actions';
+import { getPersonsAction, getPersonsSuccessAction, toggleSelectPersonAction } from './person-actions';
 import { PersonState } from '../../interfaces/person.interface';
 
 const INITIAL_STATE: PersonState = {
   data: [],
   failed: false,
   loaded: false,
-  loading: false
+  loading: false,
+  selectedSize: 0,
 };
 
 export const personReducer = createReducer(INITIAL_STATE,
@@ -21,7 +22,26 @@ export const personReducer = createReducer(INITIAL_STATE,
     return {
       ...INITIAL_STATE,
       loaded: true,
-      data: action.data
+      data: action.data.map(person => {
+        return {
+          ...person,
+          selected: false,
+        };
+      })
     };
   }),
+  on(toggleSelectPersonAction, (state, personToToggleSelect) => {
+    return {
+      ...state,
+      data: state.data.map(selectablePerson => {
+        if (selectablePerson.id === personToToggleSelect.id) {
+          return {
+            ...selectablePerson,
+            selected: !selectablePerson.selected
+          };
+        }
+        return selectablePerson;
+      })
+    };
+  })
 );

@@ -8,9 +8,10 @@
 import { Injectable } from '@angular/core';
 import { State } from '../core/interfaces/state.interface';
 import { Store } from '@ngrx/store';
-import { getPersonsAction, getPersonsSuccessAction } from '../core/store/person/person-actions';
+import { getPersonsAction, getPersonsSuccessAction, toggleSelectPersonAction } from '../core/store/person/person-actions';
 import { PersonRestService } from '../core/services/person.rest.service';
 import { debounceTime, delay, firstValueFrom, lastValueFrom } from 'rxjs';
+import { Person, SelectablePerson } from '../core/interfaces/person.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class AppSandbox {
   loading$ = this.store.select(state => state.personState.loading);
 
   constructor(private store: Store<State>, private personRestService: PersonRestService) {
+  }
+
+  toggleSelectPerson(person: SelectablePerson): void {
+    this.store.dispatch(toggleSelectPersonAction(person));
   }
 
   async loadPersons(): Promise<void> {

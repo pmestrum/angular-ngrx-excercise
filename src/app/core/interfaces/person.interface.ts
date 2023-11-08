@@ -6,6 +6,10 @@ export interface Person {
   'avatar': string;
 }
 
+export interface SelectablePerson extends Person {
+  selected: boolean;
+}
+
 export interface Persons {
   'page': number;
   'per_page': number;
@@ -17,8 +21,8 @@ export interface Persons {
 /*
 Create PersonState interface containing data (Person[]) and booleans for loading, loaded, failed
  */
-export interface PersonState
-  extends LoadState<Person[]> {
+export interface PersonState extends LoadState<SelectablePerson[]> {
+  selectedSize: number;
 }
 
 export interface LoadState<T> {
