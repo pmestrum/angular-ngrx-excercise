@@ -1,4 +1,8 @@
-<div class="person" id="person-{{person.id}}">
+
+
+
+
+<div class="person" id="person-{{person.id}}" [ngClass]="{selected:person.selected}">
   <div class="name">{{person.first_name}} {{person.last_name}}</div>
   <div class="email">{{person.email}}</div>
   <div class="avatar"><img src="{{person.avatar}}"></div>

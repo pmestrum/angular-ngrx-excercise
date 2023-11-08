@@ -20,6 +20,7 @@ export class AppSandbox {
 
   persons$ = this.store.select(state => state.personState.data);
   loading$ = this.store.select(state => state.personState.loading);
+  selectedSize$ = this.store.select(state => state.personState.selectedSize);
 
   constructor(private store: Store<State>, private personRestService: PersonRestService) {
   }
@@ -32,7 +33,7 @@ export class AppSandbox {
     // trigger actie load persons
     this.store.dispatch(getPersonsAction());
     // await
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     // get persons from server
     const users$ = this.personRestService.getUsers$();
     const data = await firstValueFrom(users$);

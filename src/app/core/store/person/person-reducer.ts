@@ -31,7 +31,7 @@ export const personReducer = createReducer(INITIAL_STATE,
     };
   }),
   on(toggleSelectPersonAction, (state, personToToggleSelect) => {
-    return {
+    const newState = {
       ...state,
       data: state.data.map(selectablePerson => {
         if (selectablePerson.id === personToToggleSelect.id) {
@@ -43,5 +43,7 @@ export const personReducer = createReducer(INITIAL_STATE,
         return selectablePerson;
       })
     };
+    newState.selectedSize = newState.data.filter(selectablePerson => selectablePerson.selected).length;
+    return newState;
   })
 );

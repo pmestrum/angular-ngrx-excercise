@@ -8,6 +8,10 @@
   align-items: center;
 }
 
+.person.selected {
+  border-color: red;
+}
+
 .person .name {
   font-weight: bold
 }
