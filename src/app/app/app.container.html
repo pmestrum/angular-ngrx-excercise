@@ -1,4 +1,7 @@
 <!--<app-header [sizeSelection]="selectedSize$ | async"></app-header>-->
+
+
 <div class="persons-container">
-  <app-person [person]="person" *ngFor="let person of (persons$ | async).data; trackBy: trackByFn"></app-person>
+  <div *ngIf="sandbox.loading$ | async">Loading</div>
+  <app-person [person]="person" *ngFor="let person of (sandbox.persons$ | async); trackBy: trackByFn"></app-person>
 </div>
