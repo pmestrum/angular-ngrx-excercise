@@ -5,7 +5,7 @@
   <div *ngIf="sandbox.loading$ | async">Loading</div>
   <app-person
     [person]="person"
-    (click)="sandbox.toggleSelectPerson(person)"
+    (toggleSelected)="sandbox.toggleSelectPerson(person)"
     *ngFor="let person of (sandbox.persons$ | async); trackBy: trackByFn"
   ></app-person>
 </div>
