@@ -1,27 +1,19 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SelectablePerson } from '../core/interfaces/Person';
-import { PersonService } from '../core/services/person.service';
-import { Store } from '@ngrx/store';
-import { State } from '../core/interfaces/state.interface';
+import { AppSandbox } from './app.sandbox';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.container.html',
-  styleUrls: ['./app.container.css']
+  styleUrls: ['./app.container.css'],
+  providers: [AppSandbox]
 })
-export class AppContainer {
-  private store = inject(Store<State>);
-  private personService = inject(PersonService);
+export class AppContainer implements OnInit {
 
-  persons$ = this.store.select(state => state.person.persons);
-  selectedSize$ = this.personService.selectedSize$;
+  sandbox = inject(AppSandbox);
 
-  toggleSelected(person: SelectablePerson) {
-    if (person.selected) {
-      this.personService.deselectPerson(person);
-    } else {
-      this.personService.selectPerson(person);
-    }
+  ngOnInit() {
+    this.sandbox.loadPersons();
   }
 
   trackByFn(index, person: SelectablePerson) {

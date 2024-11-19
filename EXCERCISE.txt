@@ -24,12 +24,9 @@ STEP 3 - integrate reducer in app
 - use store state in component
 SYNC ==> v18/step-3-finished
 
-STEP 4 - introduce sandbox
+STEP 4 - introduce and use sandbox
 - create sandbox with loadPersons function
 - add persons$ observable to sandbox, selecting the person[] from the state
-SYNC ==> v18/step-4-finished
-
-STEP 5 - use sandbox
 - change appContainer, use sandbox instead of service. remove service (provide sandbox locally: https://angular.io/guide/providers#limiting-provider-scope-with-components)
 - trigger load oninit
 - test in browser
