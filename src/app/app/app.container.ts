@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Person, Persons, SelectablePerson } from '../core/interfaces/Person';
-import { PersonRestService } from '../core/services/person.rest.service';
+import { Component } from '@angular/core';
+import { SelectablePerson } from '../core/interfaces/Person';
 import { PersonService } from '../core/services/person.service';
 
 @Component({
