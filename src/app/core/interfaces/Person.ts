@@ -1,11 +1,3 @@
-export interface PersonState {
-  loading: boolean;
-  loaded: boolean;
-  failed: boolean;
-  errorMessage?: string;
-  person: Person;
-}
-
 export interface Person {
   'id': number;
   'email': string;
@@ -20,8 +12,4 @@ export interface Persons {
   'total': number;
   'total_pages': number;
   'data': Person[];
-}
-
-export interface SelectablePerson extends Person {
-  selected: boolean;
 }
