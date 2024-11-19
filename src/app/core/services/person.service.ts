@@ -16,13 +16,7 @@ export class PersonService {
   private personRestService = inject(PersonRestService);
 
   // tslint:disable-next-line:variable-name
-  private _persons$ = new BehaviorSubject<SelectablePerson[]>([]);
-  // tslint:disable-next-line:variable-name
   private _selectedSize$ = new BehaviorSubject<number>(0);
-
-  get persons$(): Observable<SelectablePerson[]> {
-    return this._persons$.asObservable();
-  }
 
   get selectedSize$(): Observable<number> {
     return this._selectedSize$.asObservable();
@@ -38,35 +32,31 @@ export class PersonService {
     try {
       const persons = await firstValueFrom(this.personRestService.getUsers$());
       this.store.dispatch(personLoadSuccessAction({ persons: persons.data }));
-      this._persons$.next(persons.data.map(person => (Object.freeze({
-        ...person,
-        selected: false
-      }))));
     } catch (error) {
       this.store.dispatch(personLoadFailAction({ errorMessage: error.toString() }));
     }
   }
 
   selectPerson(person: SelectablePerson) {
-    this._persons$.pipe(take(1)).subscribe(persons => {
-      const newArray = persons.map(p => Object.freeze({
-        ...p,
-        selected: p === person ? true : p.selected
-      }));
-      this._persons$.next(newArray);
-      this.setSelectedSize(newArray);
-    });
+    // this._persons$.pipe(take(1)).subscribe(persons => {
+    //   const newArray = persons.map(p => Object.freeze({
+    //     ...p,
+    //     selected: p === person ? true : p.selected
+    //   }));
+    //   this._persons$.next(newArray);
+    //   this.setSelectedSize(newArray);
+    // });
   }
 
   deselectPerson(person: SelectablePerson) {
-    this._persons$.pipe(take(1)).subscribe(persons => {
-      const newArray = persons.map(p => Object.freeze({
-        ...p,
-        selected: p === person ? false : p.selected
-      }));
-      this._persons$.next(newArray);
-      this.setSelectedSize(newArray);
-    });
+    // this._persons$.pipe(take(1)).subscribe(persons => {
+    //   const newArray = persons.map(p => Object.freeze({
+    //     ...p,
+    //     selected: p === person ? false : p.selected
+    //   }));
+    //   this._persons$.next(newArray);
+    //   this.setSelectedSize(newArray);
+    // });
   }
 
   private setSelectedSize(newArray: SelectablePerson[]) {

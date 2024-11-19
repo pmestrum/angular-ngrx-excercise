@@ -10,10 +10,10 @@ import { State } from '../core/interfaces/state.interface';
   styleUrls: ['./app.container.css']
 })
 export class AppContainer {
-  private state = inject(Store<State>);
+  private store = inject(Store<State>);
   private personService = inject(PersonService);
 
-  persons$ = this.personService.persons$;
+  persons$ = this.store.select(state => state.person.persons);
   selectedSize$ = this.personService.selectedSize$;
 
   toggleSelected(person: SelectablePerson) {
