@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { SelectablePerson } from '../core/interfaces/Person';
-import { PersonService } from '../core/services/person.service';
 import { Store } from '@ngrx/store';
 import { State } from '../core/interfaces/state.interface';
+import { Person } from '../core/interfaces/Person';
+import { PersonService } from '../core/services/person.service';
 
 @Component({
   selector: 'app-root',
@@ -13,18 +13,13 @@ export class AppContainer {
   private store = inject(Store<State>);
   private personService = inject(PersonService);
 
-  persons$ = this.store.select(state => state.person.persons);
-  selectedSize$ = this.personService.selectedSize$;
+  persons$ = this.store.select(state => state.personState.persons);
 
-  toggleSelected(person: SelectablePerson) {
-    if (person.selected) {
-      this.personService.deselectPerson(person);
-    } else {
-      this.personService.selectPerson(person);
-    }
+  constructor() {
+    this.personService.loadPersons();
   }
 
-  trackByFn(index, person: SelectablePerson) {
+  trackByFn(index, person: Person) {
     return person.id;
   }
 }
