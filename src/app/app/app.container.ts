@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Person, Persons, SelectablePerson } from '../core/interfaces/Person';
-import { PersonRestService } from '../core/services/person.rest.service';
+import { Component } from '@angular/core';
+import { Person } from '../core/interfaces/Person';
 import { PersonService } from '../core/services/person.service';
 
 @Component({
@@ -10,19 +9,10 @@ import { PersonService } from '../core/services/person.service';
 })
 export class AppContainer  {
   persons$ = this.personService.persons$;
-  selectedSize$ = this.personService.selectedSize$;
 
   constructor(private personService: PersonService) {}
 
-  toggleSelected(person: SelectablePerson) {
-    if (person.selected) {
-      this.personService.deselectPerson(person);
-    } else {
-      this.personService.selectPerson(person);
-    }
-  }
-
-  trackByFn(index, person: SelectablePerson) {
+  trackByFn(index, person: Person) {
     return person.id;
   }
 }
