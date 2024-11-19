@@ -11,7 +11,7 @@ export class AppSandbox {
   private store = inject(Store<State>);
   private personRestService = inject(PersonRestService);
 
-  persons$ = this.store.select(state => state.person.persons);
+  persons$ = this.store.select(state => state.personState.persons);
 
   async loadPersons() {
     this.store.dispatch(personLoadAction());

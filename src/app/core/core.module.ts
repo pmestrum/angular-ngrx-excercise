@@ -4,7 +4,7 @@ import { personReducer } from './store/person/person.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 const reducers = {
-  person: personReducer
+  personState: personReducer
 };
 
 @NgModule({

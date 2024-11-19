@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { SelectablePerson } from '../core/interfaces/Person';
+import { Person } from '../core/interfaces/Person';
 import { AppSandbox } from './app.sandbox';
 
 @Component({
@@ -16,7 +16,7 @@ export class AppContainer implements OnInit {
     this.sandbox.loadPersons();
   }
 
-  trackByFn(index, person: SelectablePerson) {
+  trackByFn(index, person: Person) {
     return person.id;
   }
 }
