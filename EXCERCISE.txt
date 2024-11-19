@@ -30,7 +30,7 @@ STEP 4 - introduce and use sandbox
 - change appContainer, use sandbox instead of service. remove service (provide sandbox locally: https://angular.io/guide/providers#limiting-provider-scope-with-components)
 - trigger load oninit
 - test in browser
-
+SYNC ==> v18/step-4-finished
 
 //   ____            _     ____               _           _      __  _               _           _
 //  |  _ \ __ _ _ __| |_  |___ \ _   ___  ___| | ___  ___| |_   / /_| | ___ ___  ___| | ___  ___| |_
@@ -38,19 +38,21 @@ STEP 4 - introduce and use sandbox
 //  |  __/ (_| | |  | |_   / __/ _  \__ \  __/ |  __/ (__| |_ / / (_| |  __\__ \  __/ |  __/ (__| |_
 //  |_|   \__,_|_|   \__| |_____(_) |___/\___|_|\___|\___|\__/_/ \__,_|\___|___/\___|_|\___|\___|\__|
 
-// NGRX
+STEP 5 - add selected field to state
 (- Change model: create new interface SelectablePerson (extends Person) )
 - Change PersonState: add 'selectedSize'
 - Change load success reducer: make it an array of SelectablePerson, default not selected
 - create 2 new actions: SelectPersonAction & DeselectPersonAction
-- write 2 new reducer functions for this, and add to switch
+- write 2 new reducer functions for this
+SYNC ==> v18/step-5-finished
 
-SANDBOX & CONTAINER
+STEP 6 - enable selection in UI
 - add 2 new methods to the sandbox: select & deselect, trigger NGRX
 - add function to container to select/deselect, call sandbox method (ps: never change incoming state !!!)
 - add @Output event on Person component, to toggle selection
 - add button to template of Person component
 - create new selector in sandbox for selectedSize
 - add @Input parameter to header component, show size of selection
+SYNC ==> v18/step-6-finished-final
 
 That's it
