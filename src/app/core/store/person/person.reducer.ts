@@ -1,13 +1,14 @@
-import { Person, PersonState } from '../../interfaces/Person';
+import { Person } from '../../interfaces/Person';
 import { createReducer, on } from '@ngrx/store';
 import { personDeselectAction, personLoadAction, personLoadFailAction, personLoadSuccessAction, personSelectAction } from './person.actions';
+import { PersonState } from '../../interfaces/state.interface';
 
 const INITIAL_STATE: PersonState = {
   loading: false,
   loaded: false,
   failed: false,
   errorMessage: '',
-  persons: []
+  persons: [],
 };
 
 

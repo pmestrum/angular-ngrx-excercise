@@ -6,12 +6,9 @@ import { SelectablePerson } from '../../../core/interfaces/Person';
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.css']
 })
-export class PersonComponent implements OnInit {
+export class PersonComponent {
 
   @Input() person: SelectablePerson;
 
   @Output() toggleSelected = new EventEmitter<void>();
-
-  ngOnInit(): void {
-  }
 }

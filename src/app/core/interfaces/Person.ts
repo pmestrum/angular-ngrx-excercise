@@ -1,10 +1,3 @@
-export interface PersonState {
-  loading: boolean;
-  loaded: boolean;
-  failed: boolean;
-  errorMessage?: string;
-  persons: SelectablePerson[];
-}
 
 export interface Person {
   'id': number;
