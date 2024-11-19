@@ -21,6 +21,7 @@ SYNC ==> v18/step-2-finished
 STEP 3 - integrate reducer in app
 - create main reducer
 - add to core module // https://ngrx.io/guide/store
+- use store state in component
 SYNC ==> v18/step-3-finished
 
 STEP 4 - introduce sandbox
