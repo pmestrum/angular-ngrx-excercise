@@ -3,7 +3,7 @@ export interface PersonState {
   loaded: boolean;
   failed: boolean;
   errorMessage?: string;
-  persons: Person[];
+  persons: SelectablePerson[];
 }
 
 export interface Person {
@@ -14,14 +14,14 @@ export interface Person {
   'avatar': string;
 }
 
+export interface SelectablePerson extends Person {
+  selected: boolean;
+}
+
 export interface Persons {
   'page': number;
   'per_page': number;
   'total': number;
   'total_pages': number;
   'data': Person[];
-}
-
-export interface SelectablePerson extends Person {
-  selected: boolean;
 }
