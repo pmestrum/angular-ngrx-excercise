@@ -1,3 +1,11 @@
+export interface PersonState {
+  loading: boolean;
+  loaded: boolean;
+  failed: boolean;
+  errorMessage?: string;
+  person: Person;
+}
+
 export interface Person {
   'id': number;
   'email': string;

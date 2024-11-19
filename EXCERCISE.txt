@@ -5,21 +5,30 @@
 //  |_|   \__,_|_|   \__| |_(_)  \__,_|\__,_|\__,_| |_| \_|\____|_| \_\_/\_\
 //
 
-- npm install @ngrx/store@18 (already in package.json)
-- optional: npm install @ngrx/store-devtools@13 (already in package.json)
+STEP 1 - install ngrx, create interfaces
+- npm install @ngrx/store@18
+- optional: npm install @ngrx/store-devtools@18
 - create PersonState interface: has array of persons, and booleans for loading, loaded (optional: failed and errorMessage)
 - create state interface: global state of app. contains: personState
-SYNC
+SYNC ==> v18/step-1-finished
+
+STEP 2 - create actions and reducers
 - create directory core/store/person
 - Create 2 actions: load & load-success
 - create 2 reducers + initial state
-SYNC
+SYNC ==> v18/step-2-finished
+
+STEP 3 - integrate reducer in app
 - create main reducer
 - add to core module // https://ngrx.io/guide/store
-SYNC
+SYNC ==> v18/step-3-finished
+
+STEP 4 - introduce sandbox
 - create sandbox with loadPersons function
 - add persons$ observable to sandbox, selecting the person[] from the state
-SYNC
+SYNC ==> v18/step-4-finished
+
+STEP 5 - use sandbox
 - change appContainer, use sandbox instead of service. remove service (provide sandbox locally: https://angular.io/guide/providers#limiting-provider-scope-with-components)
 - trigger load oninit
 - test in browser
