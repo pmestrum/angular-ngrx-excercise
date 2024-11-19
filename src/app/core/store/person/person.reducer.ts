@@ -7,7 +7,7 @@ const INITIAL_STATE: PersonState = {
   loaded: false,
   failed: false,
   errorMessage: '',
-  person: null
+  persons: []
 };
 
 
@@ -18,24 +18,20 @@ function personLoadReducer() {
   });
 }
 
-function personLoadSuccessReducer() {
-  return (state, { person }) => ({
-    ...INITIAL_STATE,
-    loaded: true,
-    person
-  });
-}
+const personLoadSuccessReducer = (state, { persons }) => ({
+  ...INITIAL_STATE,
+  loaded: true,
+  persons
+});
 
-function personLoadFailReducer() {
-  return (state, { errorMessage }) => ({
-    ...INITIAL_STATE,
-    failed: true,
-    errorMessage
-  });
-}
+const personLoadFailReducer = (state, { errorMessage }) => ({
+  ...INITIAL_STATE,
+  failed: true,
+  errorMessage
+});
 
 export const personReducer = createReducer(INITIAL_STATE,
   on(personLoadAction, personLoadReducer()),
-  on(personLoadSuccessAction, personLoadSuccessReducer()),
-  on(personLoadFailAction, personLoadFailReducer()),
+  on(personLoadSuccessAction, personLoadSuccessReducer),
+  on(personLoadFailAction, personLoadFailReducer),
 );

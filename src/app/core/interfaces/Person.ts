@@ -3,7 +3,7 @@ export interface PersonState {
   loaded: boolean;
   failed: boolean;
   errorMessage?: string;
-  person: Person;
+  persons: Person[];
 }
 
 export interface Person {

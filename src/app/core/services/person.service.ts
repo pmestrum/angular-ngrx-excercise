@@ -1,12 +1,19 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
 import { take } from 'rxjs/operators';
 import { SelectablePerson } from '../interfaces/Person';
 import { PersonRestService } from './person.rest.service';
+import { Store } from '@ngrx/store';
+import { personLoadAction, personLoadFailAction, personLoadSuccessAction } from '../store/person/person.actions';
+import { firstValueFrom } from 'rxjs';
+import { State } from '../interfaces/state.interface';
 
 @Injectable({ providedIn: 'root' })
 export class PersonService {
+
+  private store: Store<State> = inject(Store);
+  private personRestService = inject(PersonRestService);
 
   // tslint:disable-next-line:variable-name
   private _persons$ = new BehaviorSubject<SelectablePerson[]>([]);
@@ -21,15 +28,23 @@ export class PersonService {
     return this._selectedSize$.asObservable();
   }
 
-  constructor(private personRestService: PersonRestService) {
-    this.personRestService.getUsers$()
-      .pipe(take(1))
-      .subscribe(persons => {
-        this._persons$.next(persons.data.map(person => (Object.freeze({
-          ...person,
-          selected: false
-        }))));
-      });
+  constructor() {
+    this.loadPersons();
+  }
+
+  private async loadPersons() {
+    this.store.dispatch(personLoadAction());
+
+    try {
+      const persons = await firstValueFrom(this.personRestService.getUsers$());
+      this.store.dispatch(personLoadSuccessAction({ persons: persons.data }));
+      this._persons$.next(persons.data.map(person => (Object.freeze({
+        ...person,
+        selected: false
+      }))));
+    } catch (error) {
+      this.store.dispatch(personLoadFailAction({ errorMessage: error.toString() }));
+    }
   }
 
   selectPerson(person: SelectablePerson) {
