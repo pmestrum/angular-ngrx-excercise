@@ -11,23 +11,22 @@ const INITIAL_STATE: PersonState = {
   persons: [],
 };
 
-
-function personLoadReducer() {
-  return state => ({
-    ...INITIAL_STATE,
-    loading: true
-  });
-}
-
-function personLoadSuccessReducer(state: PersonState, payload: { persons: Person[] }) {
+function personLoadReducer(state: PersonState): PersonState {
   return {
     ...INITIAL_STATE,
-    loaded: true,
-    persons: payload.persons.map(person => ({ ...person, selected: false })),
+    loading: true
   };
 }
 
-function personLoadFailReducer(state: PersonState, payload: { errorMessage: string }) {
+function personLoadSuccessReducer(state: PersonState, payload: { persons: Person[] }): PersonState {
+  return {
+    ...INITIAL_STATE,
+    loaded: true,
+    persons: payload.persons
+  };
+}
+
+function personLoadFailReducer(state: PersonState, payload: { errorMessage: string }): PersonState {
   return {
     ...INITIAL_STATE,
     failed: true,
@@ -35,14 +34,14 @@ function personLoadFailReducer(state: PersonState, payload: { errorMessage: stri
   };
 }
 
-function personSelectReducer(state: PersonState, payload: { personId: number }) {
+function personSelectReducer(state: PersonState, payload: { personId: number }): PersonState {
   return {
     ...state,
     persons: state.persons.map(person => person.id === payload.personId ? { ...person, selected: true } : person),
   };
 }
 
-function personDeselectReducer(state: PersonState, payload: { personId: number }) {
+function personDeselectReducer(state: PersonState, payload: { personId: number }): PersonState {
   return {
     ...state,
     persons: state.persons.map(person => person.id === payload.personId ? { ...person, selected: false } : person),
@@ -50,7 +49,7 @@ function personDeselectReducer(state: PersonState, payload: { personId: number }
 }
 
 export const personReducer = createReducer(INITIAL_STATE,
-  on(personLoadAction, personLoadReducer()),
+  on(personLoadAction, personLoadReducer),
   on(personLoadSuccessAction, personLoadSuccessReducer),
   on(personLoadFailAction, personLoadFailReducer),
   on(personSelectAction, personSelectReducer),
