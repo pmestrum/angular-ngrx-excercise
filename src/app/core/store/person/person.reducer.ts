@@ -12,14 +12,14 @@ const INITIAL_STATE: PersonState = {
 };
 
 
-function personLoadReducer() {
-  return state => ({
+function personLoadReducer(state: PersonState): PersonState {
+  return {
     ...INITIAL_STATE,
     loading: true
-  });
+  };
 }
 
-function personLoadSuccessReducer(state: PersonState, payload: { persons: Person[] }) {
+function personLoadSuccessReducer(state: PersonState, payload: { persons: Person[] }): PersonState {
   return {
     ...INITIAL_STATE,
     loaded: true,
@@ -27,7 +27,7 @@ function personLoadSuccessReducer(state: PersonState, payload: { persons: Person
   };
 }
 
-function personLoadFailReducer(state: PersonState, payload: { errorMessage: string }) {
+function personLoadFailReducer(state: PersonState, payload: { errorMessage: string }): PersonState {
   return {
     ...INITIAL_STATE,
     failed: true,
@@ -36,7 +36,7 @@ function personLoadFailReducer(state: PersonState, payload: { errorMessage: stri
 }
 
 export const personReducer = createReducer(INITIAL_STATE,
-  on(personLoadAction, personLoadReducer()),
+  on(personLoadAction, personLoadReducer),
   on(personLoadSuccessAction, personLoadSuccessReducer),
   on(personLoadFailAction, personLoadFailReducer),
 );
