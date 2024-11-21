@@ -22,7 +22,7 @@ function personLoadSuccessReducer(state: PersonState, payload: { persons: Person
   return {
     ...INITIAL_STATE,
     loaded: true,
-    persons: payload.persons
+    persons: payload.persons.map(person => ({ ...person, selected: false })),
   };
 }
 
